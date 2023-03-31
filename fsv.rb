@@ -12,6 +12,7 @@ class Fsv < Formula
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install_and_link buildpath
     bin.install "main.py" => "fsv"
+    chmod 0755, bin/"fsv"
   end
 
   def post_install
