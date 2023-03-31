@@ -1,4 +1,4 @@
- class Fsv < Formula
+class Fsv < Formula
   include Language::Python::Virtualenv
 
   url "https://github.com/Joao-Filh0/flutter_super_version/archive/refs/tags/0.0.4.tar.gz"
@@ -9,14 +9,15 @@
   depends_on "python@3.10"
 
   def install
-    virtualenv_install_with_resources
-    bin.install "fsv"
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install_and_link buildpath
+    bin.install "main.py" => "fsv"
   end
 
   def post_install
-    (bin/"main.py").write <<~EOS
+    (bin/"fsv").write <<~EOS
       #!/bin/bash
-      exec "#{libexec}/bin/python" "#{libexec}/lib/python3.9/site-packages/main.py" "$@"
+      exec "#{libexec}/bin/python" "#{libexec}/lib/python3.10/site-packages/main.py" "$@"
     EOS
   end
 
