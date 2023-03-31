@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "fsv"
+version = "0.0.1"
+description = "Utilitarios para desenvolvedor flutter"
+authors = ["Joao Alves <militaof522@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+argparse = "^1.4.0"
+
+[tool.poetry.dev-dependencies]
+# Adicione suas dependências de desenvolvimento aqui, por exemplo:
+# pytest = "^6.2.4"
+
+[tool.poetry.scripts]
+fsv = "main:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
