@@ -8,18 +8,21 @@ class Fsv < Formula
 
   depends_on "python@3.10"
 
-  def install
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install_and_link buildpath
+ def install
+  venv = virtualenv_create(libexec, "python3")
+  venv.pip_install_and_link buildpath
 
-    (buildpath/"fsv").write <<~EOS
-      #!/bin/bash
-      exec "#{libexec}/bin/python" -c "import sys; sys.path.insert(0, '#{libexec}/lib/python3.10/site-packages'); import main; main.main()" "$@"
-    EOS
+  (buildpath/"fsv").write <<~EOS
+    #!/bin/bash
+    exec "#{libexec}/bin/python" "#{libexec}/bin/main" "$@"
+  EOS
 
-    chmod 0755, buildpath/"fsv"
-    bin.install buildpath/"fsv"
-  end
+  chmod 0755, buildpath/"fsv"
+  bin.install buildpath/"fsv"
+
+  libexec.install "main.py"
+end
+
 
   test do
     system "#{bin}/fsv", "-pg"
