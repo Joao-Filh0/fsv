@@ -14,7 +14,7 @@ class Fsv < Formula
 
     (buildpath/"fsv").write <<~EOS
       #!/bin/bash
-      exec "#{libexec}/bin/python" "#{libexec}/lib/python3.10/site-packages/main.py" "$@"
+      exec "#{libexec}/bin/python" -c "import pkg_resources; exec(pkg_resources.resource_string('fsv', 'main.py'))" "$@"
     EOS
 
     chmod 0755, buildpath/"fsv"
