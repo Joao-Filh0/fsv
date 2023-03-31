@@ -14,7 +14,7 @@
   end
 
   def post_install
-    (bin/"fsv").write <<~EOS
+    (bin/"main.py").write <<~EOS
       #!/bin/bash
       exec "#{libexec}/bin/python" "#{libexec}/lib/python3.9/site-packages/main.py" "$@"
     EOS
