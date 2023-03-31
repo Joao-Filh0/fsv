@@ -1,4 +1,4 @@
- class FutterSuperVersion < Formula
+ class Fsv < Formula
   include Language::Python::Virtualenv
 
   url "https://github.com/Joao-Filh0/flutter_super_version/archive/refs/tags/0.0.1.tar.gz"
