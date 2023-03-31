@@ -14,7 +14,7 @@ class Fsv < Formula
 
   (buildpath/"fsv").write <<~EOS
     #!/bin/bash
-    exec "#{libexec}/bin/python" "#{libexec}/bin/main" "$@"
+    exec "#{libexec}/bin/python" "#{libexec}/lib/python3.10/site-packages/flutter_super_version/main.py" "$@"
   EOS
 
   chmod 0755, buildpath/"fsv"
