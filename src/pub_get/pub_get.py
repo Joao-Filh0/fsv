@@ -14,7 +14,7 @@ class PubGet:
         if result.returncode == 0:
             print(result.stdout)
         else:
-            print(f"Erro ao executar 'flutter pub get' em {project_path}:")
+            print(f"Error running 'flutter pub get' on {project_path}:")
             print(result.stderr)
 
     def __find_pubspec_files(self, start_directory):
@@ -29,11 +29,15 @@ class PubGet:
 
     def run(self):
 
+        if self.reverse != 'desc' and self.reverse != 'asc':
+            print(f'Command ({self.reverse}) not found !')
+            return
+
         start_directory = os.getcwd()
 
         pubspec_files = self.__find_pubspec_files(start_directory)
 
-        if self.reverse is None :
+        if self.reverse == 'desc':
             pubspec_files.reverse()
 
         if pubspec_files:
@@ -43,4 +47,4 @@ class PubGet:
                 path = pubspac_path[1:].replace(self.file, '')
                 self.__run_pub_get(path)
         else:
-            print("Nenhum projeto FLUTTER encontrado.")
+            print("Project FLUTTER not found.")

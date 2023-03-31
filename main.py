@@ -9,9 +9,9 @@ from src.rename_version import rename_version
 parser = argparse.ArgumentParser(description=description)
 
 parser.add_argument('--change', '-c', required=False)
-parser.add_argument('--list', '-l', required=False, const='v', nargs='?')
+parser.add_argument('--list', '-l', required=False, const='l', nargs='?')
 parser.add_argument('--path', '-p', required=False)
-parser.add_argument('--pub-get', '-pg', required=False, const='v', nargs='?')
+parser.add_argument('--pub-get', '-pg', required=False, const='desc', nargs='?')
 
 args = parser.parse_args()
 
@@ -26,5 +26,5 @@ elif vars(args).get('list'):
 elif vars(args).get('path'):
     manage_path.save(args.path)
 elif vars(args).get('pub_get'):
-    pub_get = PubGet(args.path)
+    pub_get = PubGet(args.pub_get)
     pub_get.run()
