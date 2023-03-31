@@ -6,7 +6,7 @@
   version "1.0.4"
   head "https://github.com/Joao-Filh0/flutter_super_version.git", branch: "main"
 
-  depends_on "python@3.9"
+  depends_on "python@3.10.6"
 
   def install
     virtualenv_install_with_resources
