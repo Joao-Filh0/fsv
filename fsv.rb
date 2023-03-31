@@ -1,9 +1,9 @@
  class Fsv < Formula
   include Language::Python::Virtualenv
 
-  url "https://github.com/Joao-Filh0/flutter_super_version/archive/refs/tags/0.0.1.tar.gz"
-  sha256 "9d023bd2e4f965025412fe55620e97a941de123d1f91e2fa9374f62850eed1df"
-  version "1.0.1"
+  url "https://github.com/Joao-Filh0/flutter_super_version/archive/refs/tags/0.0.2.tar.gz"
+  sha256 "a59af1e00abec015050caa3b41fdb71ccb5e9c93b70b52e3106a00a3c834e4f0"
+  version "1.0.2"
   head "https://github.com/Joao-Filh0/flutter_super_version.git", branch: "main"
 
   depends_on "python@3.9"
@@ -21,7 +21,6 @@
   end
 
   test do
-    # Aqui você pode adicionar um teste simples para o seu script Python, por exemplo:
     system "#{bin}/fsv", "-pg"
   end
 end
