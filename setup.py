@@ -7,6 +7,7 @@ setup(
     author="João Alves",
     author_email="militaof522@gmail.com",
     packages=find_packages(),
+    package_dir={"": "."},
     install_requires=[
         "argparse>=1.4.0",
     ],
