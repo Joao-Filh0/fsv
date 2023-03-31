@@ -1,6 +1,6 @@
 import argparse
 
-from src.constants import description, path_flutter, version_label, label
+from src.constants import description,version_label, label
 from src.list_version import list_version
 from src.manager_path import ManagePath
 from src.pub_get.pub_get import PubGet
@@ -19,7 +19,7 @@ def main():
 
     manage_path = ManagePath()
     get_path = manage_path.get_path()
-    config_path = get_path if get_path else path_flutter
+    config_path = get_path
 
     if vars(args).get('change'):
         rename_version(arg=args.change, path_flutter=config_path, label=label, version_label=version_label)
