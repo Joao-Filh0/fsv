@@ -43,8 +43,8 @@ class PubGet:
         if pubspec_files:
             for filepath in pubspec_files:
                 dir_name = start_directory.split('/')[-1]
-                pubspac_path = filepath.split(dir_name)[-1]
-                path = pubspac_path[1:].replace(self.file, '')
+                pubspec_path = filepath.split(dir_name)[-1]
+                path = pubspec_path[1:].replace(self.file, '')
                 self.__run_pub_get(path)
         else:
             print("Project FLUTTER not found.")
