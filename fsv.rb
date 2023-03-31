@@ -11,15 +11,13 @@ class Fsv < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install_and_link buildpath
-    bin.install "main.py" => "fsv"
-    chmod 0755, bin/"fsv"
-  end
 
-  def post_install
     (bin/"fsv").write <<~EOS
       #!/bin/bash
       exec "#{libexec}/bin/python" "#{libexec}/lib/python3.10/site-packages/main.py" "$@"
     EOS
+
+    chmod 0755, bin/"fsv"
   end
 
   test do
