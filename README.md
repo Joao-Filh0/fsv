@@ -1,5 +1,7 @@
 # Flutter Super Version
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 O Flutter Super Version é um gerenciador de versões para o Flutter que permite facilmente alternar entre 
 diferentes versões,  como funçao extra  também é possivel executar o `pub get` em todos os micro apps presentes no projeto.
 
@@ -61,6 +63,7 @@ Se você encontrar um problema com o Flutter Super Version ou quiser sugerir uma
 ## Licença
 
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para obter mais informações.
+
 
 
 
