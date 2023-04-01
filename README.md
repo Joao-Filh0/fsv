@@ -30,15 +30,15 @@ em seguida:
 
 Baixe o arquivo [fsv.exe](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv.exe)
 
-Adicione o path nas variavéis de ambiente ex:. `C:\fsv\`
-
-#### Obs: certifique-se de que o path termina com  barra invertida
+Adicione o path nas variavéis de ambiente ex:. `C:\fsv`
 
 ## Comandos :
 
 Adicionar o caminho do flutter :
 
 `fsv -p /Users/your-flutter-path/`  ou `fsv -path /Users/your-flutter-path/`
+
+#### Obs: Para windowns certifique-se de que o path termina com  barra invertida
 
 Para listar todas as versões do Flutter
 
