@@ -40,6 +40,9 @@ Adicionar o caminho do flutter :
 
 #### Obs: Para windowns certifique-se de que o path termina com  barra invertida
 
+Ex : `fsv -path C:\src\`
+
+
 Para listar todas as versões do Flutter
 
  `fsv -l`    ou  `fsv -list`
