@@ -10,7 +10,7 @@ setup(
     package_dir={"": "."},
     install_requires=[
         "argparse>=1.4.0",
-        "requests>=2.7.0",
+        "requests",
     ],
     entry_points={
         "console_scripts": [
