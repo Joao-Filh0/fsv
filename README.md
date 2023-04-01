@@ -21,7 +21,7 @@
 
 ### Para adicionar o caminho onde esta a pasta flutter lembre de por o `/` no final do path
 
-`fsv -p your-flutter-path/`  ou `fsv -path your-flutter-path/`
+`fsv -p /Users/your-flutter-path/`  ou `fsv -path /Users/your-flutter-path/`
 
 ### Para listar todas as versões do Flutter
  `fsv -l`    ou  `fsv -list`
