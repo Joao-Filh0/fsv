@@ -7,7 +7,7 @@ diferentes versões,  como funçao extra  também é possivel executar o `pub ge
 
 Para instalar o Flutter Super Version, siga os seguintes passos:
 
-### MacOs
+## MacOs
 Para installar basta rodar o comando :
 
 `brew tap joao-filh0/homebrew-fsv` 
@@ -24,8 +24,14 @@ em seguida:
 
 `brew uninstall fsv `   
 
+## Windowns
 
-## Comandos Básicos
+Baixe o arquivo [fsv.exe](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv.exe)
+
+Adicione nas variavéis de ambiente ex:. `C:\fsv`
+
+
+## Comandos :
 
 Adicionar o caminho do flutter :
 
@@ -46,12 +52,6 @@ Para executar o comando `pub get` no app principal e em todos os micro apps.
 Também é possível executar o comando pub get em ordem crescente ou decrescente.
 
 `fsv -pg asc`    ou  `fsv --pub-get desc`
-
-### Windowns
-
-Baixe o arquivo [fsv.exe](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv.exe)
-
-Adicione nas variavéis de ambiente ex:. `C:\fsv`
 
 
 ## Contribuindo
