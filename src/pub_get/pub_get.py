@@ -9,7 +9,7 @@ class PubGet:
     def __run_pub_get(self, project_path):
         subprocess.run(["cd", project_path], shell=True)
 
-        result = subprocess.run([f"flutter pub get {project_path}"], capture_output=True, text=True, shell=True)
+        result = subprocess.run(f"flutter pub get {project_path}", capture_output=True, text=True, shell=True)
 
         if result.returncode == 0:
             print(result.stdout)

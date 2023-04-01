@@ -1,5 +1,5 @@
 from src.constants import success_config_path, error_config_path
-import os
+
 import platform
 
 
@@ -7,17 +7,15 @@ class ManagePath:
     def save(self, path):
         try:
             with open('flutter_path', "w") as flutter_path:
-                end_path = path[-1]
-                start_path = path[0]
-                p1 = '/'
 
-                if end_path != p1:
-                    path = path + p1
-                if start_path != p1:
-                    path = p1 + path
-
-                if platform.system() == 'Windows':
-                    path = path.replace("/", "\\")
+                if platform.system() != 'Windows':
+                    end_path = path[-1]
+                    start_path = path[0]
+                    p1 = '/'
+                    if end_path != p1:
+                        path = path + p1
+                    if start_path != p1:
+                        path = p1 + path
                 flutter_path.write(path)
                 print(success_config_path, end='')
                 print(': ' + path)
