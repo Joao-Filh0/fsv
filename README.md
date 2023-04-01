@@ -30,8 +30,9 @@ em seguida:
 
 Baixe o arquivo [fsv.exe](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv.exe)
 
-Adicione nas variavéis de ambiente ex:. `C:\fsv`
+Adicione nas variavéis de ambiente ex:. `C:\fsv\`
 
+#### Obs: certifique-se de que o path termina com  barra invertida
 
 ## Comandos :
 
@@ -55,6 +56,19 @@ Também é possível executar o comando pub get em ordem crescente ou decrescent
 
 `fsv -pg asc`    ou  `fsv --pub-get desc`
 
+Ver tamanho da pasta que contém os arquivos flutter
+
+`fsv -m`    ou  `fsv --memory`
+
+Clonar uma nova versão do flutter
+
+`fsv -pl 3.7.7` ou `fsv --pull 3.7.7`
+
+Listar todas as versões stable
+
+#### Obs: até o momento funciona apenas na versão windows
+
+`fsv -ls` ou ` fsv --list-stable`
 
 ## Contribuindo
 
