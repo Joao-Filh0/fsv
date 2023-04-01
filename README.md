@@ -19,7 +19,7 @@
 
 # Comandos Básicos
 
-### Para adicionar o caminho onde esta a pasta flutter lembre de por o `/` no final do path
+### Para adicionar o caminho onde esta a pasta flutter :
 
 `fsv -p /Users/your-flutter-path/`  ou `fsv -path /Users/your-flutter-path/`
 
