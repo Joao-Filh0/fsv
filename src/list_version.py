@@ -1,6 +1,7 @@
-import os, platform
+import os
 
 from src.constants import message, command_path
+from src.helpers.get_slash import get_slash
 from src.open_file import open_file
 
 
@@ -10,10 +11,7 @@ def list_version(path_flutter: str, version_label: str, label: str, is_print=Tru
         print(command_path)
         return
     versions = os.listdir(path_flutter)
-    slash = '/'
-
-    if platform.system() == 'Windows':
-        slash = '\\'
+    slash = get_slash()
 
     for v in versions:
         if v[0] != '.':
