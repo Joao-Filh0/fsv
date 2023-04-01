@@ -30,7 +30,7 @@ em seguida:
 
 Baixe o arquivo [fsv.exe](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv.exe)
 
-Adicione nas variavéis de ambiente ex:. `C:\fsv\`
+Adicione o path nas variavéis de ambiente ex:. `C:\fsv\`
 
 #### Obs: certifique-se de que o path termina com  barra invertida
 
