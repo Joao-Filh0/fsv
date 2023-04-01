@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="fsv",
-    version="0.0.4",
+    version="0.0.12",
     description="Utilitários para desenvolvedor Flutter",
     author="João Alves",
     author_email="militaof522@gmail.com",
