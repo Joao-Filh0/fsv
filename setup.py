@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="fsv",
-    version="0.0.17",
+    version="0.0.19",
     description="Utilitários para desenvolvedor Flutter",
     author="João Alves",
     author_email="militaof522@gmail.com",
@@ -10,7 +10,6 @@ setup(
     package_dir={"": "."},
     install_requires=[
         "requests",
-        "colorama",
         "argparse>=1.4.0",
 
     ],
