@@ -12,7 +12,7 @@ Para instalar o Flutter Super Version, siga os seguintes passos:
 
 ## MacOs
 
-### Opção 1
+### Opção 1 (Recomendado)
 
 Para installar basta rodar o comando :
 
