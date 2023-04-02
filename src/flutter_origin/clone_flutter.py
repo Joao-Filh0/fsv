@@ -19,8 +19,9 @@ class CloneFlutter:
             print(f'Error {e}')
 
     def __set_file_version(self, path_flutter: str, label, version: str):
-        with open(f'{path_flutter}{label}/version', 'w') as f:
-            f.write(version)
+        new_path = os.path.join(path_flutter, label, "version")
+        with open(new_path, 'w') as f:
+            f.write(version.replace(" ", ""))
 
     def clone(self, path_flutter, version: str, label: str, version_label: str):
         try:
@@ -32,13 +33,14 @@ class CloneFlutter:
             f"git clone --branch {version} https://github.com/flutter/flutter.git {os.path.join(path_flutter, label)}",
             capture_output=True, text=True, shell=True)
 
-        print('Completed Successfully!\n')
         print('Running flutter --version')
         subprocess.run("flutter --version\n", capture_output=True, text=True, shell=True)
 
         if result.returncode == 0:
             self.__set_file_version(path_flutter=path_flutter, label=label, version=version)
             remove_folder(f'{path_flutter}{label}{self.slash}examples')
+            print('Completed Successfully!\n')
             print(f'The current version is {version}')
+
         else:
             print(result.stderr)
