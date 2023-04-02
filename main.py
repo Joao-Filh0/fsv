@@ -32,8 +32,7 @@ def main():
     args = parser.parse_args()
 
     manage_path = ManagePath()
-    get_path = manage_path.get_path()
-    config_path = get_path
+    config_path = manage_path.get_path()
 
     if vars(args).get('change'):
         rename_version(arg=args.change, path_flutter=config_path, label=label, version_label=version_label)
