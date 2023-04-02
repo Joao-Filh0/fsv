@@ -8,15 +8,17 @@ import os
 class ManagePath:
     def save(self, path):
         try:
-            with open('flutter_path', "w") as flutter_path:
+            if platform.system() != 'Windows':
+                path = os.path.join('/', path)
+            if os.path.exists(path):
+                with open('flutter_path', "w") as flutter_path:
+                    flutter_path.write(path)
+                    print(success_config_path, end='')
+                    print(': ' + path)
+            else:
+                print(f"Path not exists : {path}")
 
-                if platform.system() != 'Windows':
-                    path = os.path.join('/', path)
-                flutter_path.write(path)
-                print(success_config_path, end='')
-                print(': ' + path)
-
-        except:
+        except Exception:
             print(error_config_path)
 
     def get_path(self):
