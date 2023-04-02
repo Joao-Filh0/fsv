@@ -30,7 +30,7 @@ em seguida:
 
 `brew uninstall fsv `
 
-### Opção 2 (recomendado)
+### Opção 2 
 
 Segunda opção é baixar o arquivo [fsv](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv)
 
