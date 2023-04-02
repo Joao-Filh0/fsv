@@ -2,6 +2,7 @@
 from src.constants import success_config_path, error_config_path
 
 import platform
+import os
 
 
 class ManagePath:
@@ -10,13 +11,7 @@ class ManagePath:
             with open('flutter_path', "w") as flutter_path:
 
                 if platform.system() != 'Windows':
-                    end_path = path[-1]
-                    start_path = path[0]
-                    p1 = '/'
-                    if end_path != p1:
-                        path = path + p1
-                    if start_path != p1:
-                        path = p1 + path
+                    path = os.path.join('/', path)
                 flutter_path.write(path)
                 print(success_config_path, end='')
                 print(': ' + path)
