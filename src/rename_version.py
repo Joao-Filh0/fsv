@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from src.helpers.get_slash import get_slash
 from src.list_version import list_version
 from src.open_file import open_file

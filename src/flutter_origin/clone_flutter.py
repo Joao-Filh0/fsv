@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from src.helpers.get_slash import get_slash
 from src.helpers.remove_folder import remove_folder
 from src.open_file import open_file

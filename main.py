@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import argparse
 
 from src.constants import (description, version_label,
@@ -5,7 +7,7 @@ from src.constants import (description, version_label,
                            message_current_path,
                            message, command_path)
 from src.flutter_origin.clone_flutter import CloneFlutter
-#from src.flutter_origin.get_version_origin import GetFlutterStableVersions
+from src.flutter_origin.get_version_origin import GetFlutterStableVersions
 from src.get_folder_sizes.get_folder_size import GetFolderSize
 from src.list_version import list_version
 from src.manager_path import ManagePath
@@ -49,9 +51,9 @@ def main():
         pub_get = PubGet(args.pub_get)
         pub_get.run()
 
-    # elif vars(args).get('list_stable'):
-    #     list_flutter_origin_stable = GetFlutterStableVersions()
-    #     list_flutter_origin_stable.run()
+    elif vars(args).get('list_stable'):
+        list_flutter_origin_stable = GetFlutterStableVersions()
+        list_flutter_origin_stable.run()
 
     elif vars(args).get('pull'):
         pull = CloneFlutter()
