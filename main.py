@@ -11,7 +11,7 @@ from src.flutter_origin.clone_flutter import CloneFlutter
 from src.flutter_origin.get_version_origin import GetFlutterStableVersions
 from src.get_folder_sizes.get_folder_size import GetFolderSize
 from src.list_version import list_version
-from src.manager_path import ManagePath
+from src.manage_path.manager_path import ManagePath
 from src.pub_get.pub_get import PubGet
 from src.rename_version import rename_version
 
@@ -32,7 +32,7 @@ def main():
     args = parser.parse_args()
 
     manage_path = ManagePath()
-    config_path = manage_path.get_path()
+    config_path = manage_path.get_flutter_path()
 
     if vars(args).get('change'):
         rename_version(arg=args.change, path_flutter=config_path, label=label, version_label=version_label)

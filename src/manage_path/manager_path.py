@@ -28,3 +28,16 @@ class ManagePath:
                 return None
         except FileNotFoundError:
             return None
+
+    def get_flutter_path(self):
+        path = self.get_path()
+        if path is None:
+            flutter_path = None
+            paths = os.environ['PATH'].split(os.pathsep)
+            path_base = os.path.join("flutter", "bin")
+            for path in paths:
+                if path_base in path:
+                    flutter_path = path[:path.find(path_base)]
+                    break
+            return flutter_path
+        return path

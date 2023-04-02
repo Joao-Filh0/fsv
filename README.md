@@ -30,7 +30,7 @@ em seguida:
 
 `brew uninstall fsv `
 
-### Opção 2 
+### Opção 2
 
 Segunda opção é baixar o arquivo [fsv](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv)
 
@@ -56,7 +56,7 @@ Adicione o path nas variavéis de ambiente ex:. `C:\fsv`
 
 ## Comandos :
 
-Adicionar o caminho do flutter :
+Se você desejar adicionar o caminho do Flutter manualmente (Opcional):
 
 `fsv -p /Users/your-flutter-path/`  ou `fsv -path /Users/your-flutter-path/`
 
