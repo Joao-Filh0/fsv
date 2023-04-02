@@ -27,13 +27,18 @@ class CloneFlutter:
             self.__rename_dir(path_flutter=path_flutter, label=label, version_label=version_label)
         except FileNotFoundError:
             pass
-        print('Please await, fot the requested version ...')
+        print('Please await, for the requested version ...\n')
         result = subprocess.run(
-            f"git clone --branch {version} https://github.com/flutter/flutter.git {path_flutter}/{label}",
+            f"git clone --branch {version} https://github.com/flutter/flutter.git {os.path.join(path_flutter, label)}",
             capture_output=True, text=True, shell=True)
+
+        print('Completed Successfully!\n')
+        print('Running flutter --version')
+        subprocess.run("flutter --version\n", capture_output=True, text=True, shell=True)
 
         if result.returncode == 0:
             self.__set_file_version(path_flutter=path_flutter, label=label, version=version)
             remove_folder(f'{path_flutter}{label}{self.slash}examples')
+            print(f'The current version is {version}')
         else:
             print(result.stderr)
