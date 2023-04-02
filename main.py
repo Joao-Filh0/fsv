@@ -6,6 +6,7 @@ from src.constants import (description, version_label,
                            label, not_found_path,
                            message_current_path,
                            message, command_path)
+from src.delete_flutter_version.delete_flutter_version import DeleteFlutterVersion
 from src.flutter_origin.clone_flutter import CloneFlutter
 from src.flutter_origin.get_version_origin import GetFlutterStableVersions
 from src.get_folder_sizes.get_folder_size import GetFolderSize
@@ -22,6 +23,7 @@ def main():
     parser.add_argument('--list', '-l', required=False, const='l', nargs='?')
     parser.add_argument('--path', '-p', required=False)
     parser.add_argument('--pull', '-pl', required=False)
+    parser.add_argument('--remove', '-rm', required=False)
     parser.add_argument('--pub-get', '-pg', required=False, const='desc', nargs='?')
     parser.add_argument('--view-path', '-vp', required=False, const='vp', nargs='?')
     parser.add_argument('--list-stable', '-ls', required=False, const='ls', nargs='?')
@@ -35,10 +37,13 @@ def main():
 
     if vars(args).get('change'):
         rename_version(arg=args.change, path_flutter=config_path, label=label, version_label=version_label)
+
     elif vars(args).get('list'):
         list_version(path_flutter=config_path, version_label=version_label, label=label)
+
     elif vars(args).get('path'):
         manage_path.save(args.path)
+
     elif vars(args).get('view_path'):
         if config_path:
             print(f'{message_current_path} : {config_path}')
@@ -60,8 +65,12 @@ def main():
         pull.clone(path_flutter=config_path, version=args.pull, label=label, version_label=version_label)
 
     elif vars(args).get('memory'):
-        pull = GetFolderSize()
-        pull.run(path=config_path)
+        memory = GetFolderSize()
+        memory.run(path=config_path)
+
+    elif vars(args).get('remove'):
+        remove = DeleteFlutterVersion()
+        remove.run(path=config_path, version_label=version_label, set_version=args.remove)
 
 
 if __name__ == "__main__":

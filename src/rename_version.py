@@ -6,8 +6,7 @@ import os
 
 
 def rename_version(arg: str, path_flutter: str, label: str, version_label: str):
-    slash = get_slash()
-    flutter_current_version_name = open_file(path_flutter + f'{label}{slash}{version_label}', is_print=False)
+    flutter_current_version_name = open_file(os.path.join(path_flutter, label, version_label), is_print=False)
     versions = list_version(path_flutter=path_flutter, version_label=version_label, label=label, is_print=False)
     if arg not in versions:
         print('Flutter version not found')
