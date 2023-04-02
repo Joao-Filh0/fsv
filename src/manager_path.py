@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from src.constants import success_config_path, error_config_path
 
 import platform

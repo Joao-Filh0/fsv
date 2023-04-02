@@ -10,6 +10,8 @@ diferentes versões,  como funçao extra  também é possivel executar o `pub ge
 Para instalar o Flutter Super Version, siga os seguintes passos:
 
 ## MacOs
+
+### Opção 1
 Para installar basta rodar o comando :
 
 `brew tap joao-filh0/homebrew-fsv` 
@@ -24,7 +26,25 @@ Para remover:
 
 em seguida:
 
-`brew uninstall fsv `   
+`brew uninstall fsv `  
+
+### Opção 2 (recomendado)
+
+Segunda opção é baixar o arquivo [fsv](https://github.com/Joao-Filh0/fsv/raw/main/dist/fsv)
+
+depois por no terminal `nano ~/.bash_profile`
+
+colar o path onde vc salvou o arquivo com um alias `fsv` Ex: `alias fsv="/Users/path_onde_salvou/fsv"`
+
+lembre de adicionar o nome do arquivo no path 
+
+Pressione `Control + X` para sair do editor Nano e depois `Y` para confirmar as alterações e salvar o arquivo.
+
+Atualize o arquivo de configuração do shell para aplicar as alterações:
+
+`source ~/.bash_profile`
+
+Agora você pode executar seu aplicativo em qualquer lugar digitando `fsv`
 
 ## Windowns
 
@@ -68,8 +88,6 @@ Clonar uma nova versão do flutter
 `fsv -pl 3.7.7` ou `fsv --pull 3.7.7`
 
 Listar todas as versões stable
-
-#### Obs: até o momento funciona apenas na versão windows
 
 `fsv -ls` ou ` fsv --list-stable`
 

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 
 from src.constants import message, command_path

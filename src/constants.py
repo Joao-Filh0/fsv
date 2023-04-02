@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 label = 'flutter'
 version_label = 'version'
 description = "flutter_manager_version"
