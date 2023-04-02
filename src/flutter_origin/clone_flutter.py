@@ -30,11 +30,11 @@ class CloneFlutter:
             pass
         print('Please await, for the requested version ...\n')
         result = subprocess.run(
-            f"git clone --branch {version} https://github.com/flutter/flutter.git {os.path.join(path_flutter, label)}",
+            f"git clone -b stable https://github.com/flutter/flutter.git {os.path.join(path_flutter, label)} --depth 1 --branch {version}",
             capture_output=True, text=True, shell=True)
 
-        print('Running flutter --version')
-        subprocess.run("flutter --version\n", capture_output=True, text=True, shell=True)
+        print('Running flutter doctor -v\n')
+        subprocess.run("flutter doctor -v", capture_output=True, text=True, shell=True)
 
         if result.returncode == 0:
             self.__set_file_version(path_flutter=path_flutter, label=label, version=version)
