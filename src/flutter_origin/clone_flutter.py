@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+from src.helpers.get_version_helper import get_version_helper
 from src.helpers.remove_folder import remove_folder
 from src.open_file import open_file
 import os
 import subprocess
+from colorama import Fore, Style
 
 
 class CloneFlutter:
@@ -20,25 +22,32 @@ class CloneFlutter:
             f.write(version.replace(" ", ""))
 
     def clone(self, path_flutter, version: str, label: str, version_label: str):
-        try:
-            self.__rename_dir(path_flutter=path_flutter, label=label, version_label=version_label)
-        except FileNotFoundError:
-            pass
-        print('Please await, for the requested version ...\n')
-        result = subprocess.run(
-            f"git clone -b stable https://github.com/flutter/flutter.git {os.path.join(path_flutter, label)} --depth 1 --branch {version}",
-            capture_output=True, text=True, shell=True)
 
-        print('Running flutter doctor -v\n')
-        subprocess.run("flutter doctor -v", capture_output=True, text=True, shell=True)
+        list_version = get_version_helper(path=path_flutter)
 
-        if result.returncode == 0:
-            print("Naming version\n")
-            self.__set_file_version(path_flutter=path_flutter, label=label, version=version)
-            print("Freeing up space ...\n")
-            remove_folder(os.path.join(path_flutter, label, 'examples'))
-            print('Completed Successfully!\n')
-            print(f'The current version is {version}')
+        if version not in list_version:
+            try:
+                self.__rename_dir(path_flutter=path_flutter, label=label, version_label=version_label)
+            except FileNotFoundError:
+                pass
+            print('Please await, for the requested version ...\n')
+            result = subprocess.run(
+                f"git clone -b stable https://github.com/flutter/flutter.git {os.path.join(path_flutter, label)} --depth 1 --branch {version}",
+                capture_output=True, text=True, shell=True)
 
+            print('Running flutter doctor -v\n')
+            subprocess.run("flutter doctor -v", capture_output=True, text=True, shell=True)
+
+            if result.returncode == 0:
+                print("Naming version\n")
+                self.__set_file_version(path_flutter=path_flutter, label=label, version=version)
+                print("Freeing up space ...\n")
+                remove_folder(os.path.join(path_flutter, label, 'examples'))
+                print('Completed Successfully!\n')
+                print(f'The current version is {version}')
+
+            else:
+                print(result.stderr)
+            return
         else:
-            print(result.stderr)
+            print(f'\n{Fore.RED} You already have flutter version {version} installed {Style.RESET_ALL}')

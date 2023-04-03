@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import re
 import requests
+from colorama import Fore, Style
+
+from src.helpers.get_version_helper import get_version_helper
 
 
 class GetFlutterStableVersions:
@@ -33,13 +36,17 @@ class GetFlutterStableVersions:
 
         return numeric_versions
 
-    def run(self):
+    def run(self, path: str):
         print('Search Flutter Stables Versions ...')
 
         numeric_versions = self.__get_versions()
+        numeric_versions.reverse()
+        list_versions = get_version_helper(path=path)
 
         if numeric_versions:
             print("Stable versions available")
             for version in numeric_versions:
-                print(f'Stable = {version}')
-
+                if version in list_versions:
+                    print(f'{Fore.GREEN} Stable = {version} <------- {Style.RESET_ALL}')
+                else:
+                    print(f'{Fore.YELLOW} Stable = {version} {Style.RESET_ALL}')

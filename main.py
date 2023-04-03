@@ -66,7 +66,7 @@ def main():
 
     elif vars(args).get('list_stable'):
         list_flutter_origin_stable = GetFlutterStableVersions()
-        list_flutter_origin_stable.run()
+        list_flutter_origin_stable.run(path=config_path)
         return
 
     elif vars(args).get('pull'):
