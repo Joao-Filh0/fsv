@@ -16,6 +16,9 @@ Para instalar o Flutter Super Version, siga os seguintes passos:
 
 Para installar basta rodar o comando :
 
+Caso esteja utilizando o M1 use o comando "arch -arm64 brew install" para 
+instalar o plugin 
+
 `brew tap joao-filh0/homebrew-fsv`
 
 em seguida:
