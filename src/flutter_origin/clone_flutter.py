@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from src.helpers.get_slash import get_slash
 from src.helpers.remove_folder import remove_folder
 from src.open_file import open_file
 import os
@@ -7,9 +6,6 @@ import subprocess
 
 
 class CloneFlutter:
-    def __init__(self):
-        self.slash = get_slash()
-
     def __rename_dir(self, path_flutter: str, label: str, version_label: str):
         flutter_current_version_name = open_file(path_flutter + f'{label}/{version_label}', is_print=False)
         os.chdir(path_flutter)
@@ -38,7 +34,7 @@ class CloneFlutter:
 
         if result.returncode == 0:
             self.__set_file_version(path_flutter=path_flutter, label=label, version=version)
-            remove_folder(f'{path_flutter}{label}{self.slash}examples')
+            remove_folder(os.path.join(path_flutter, label, 'examples'))
             print('Completed Successfully!\n')
             print(f'The current version is {version}')
 
