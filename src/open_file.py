@@ -10,5 +10,8 @@ def open_file(path: str, message='', is_print=True, check=''):
                 color = Fore.GREEN
             else:
                 color = Fore.YELLOW
-            print(color + version + check + Style.RESET_ALL)
+            try:
+                print(color + version + check + Style.RESET_ALL)
+            except Exception:
+                print(color + version + " v" if check else "" + Style.RESET_ALL)
         return version
