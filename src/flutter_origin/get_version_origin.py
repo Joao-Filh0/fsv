@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+import os.path
 import re
 import requests
+import json
 from colorama import Fore, Style
 
 from src.helpers.get_version_helper import get_version_helper
@@ -30,13 +32,15 @@ class GetFlutterStableVersions:
                     break
 
                 page += 1
-            elif response.status_code == 403:
-                print(f"Error: {response.text}")
-                return None
-            else:
-                print(f"Error: {response.status_code}")
-                return None
 
+            else:
+                with open('cache_version.json', 'r') as cache:
+                    list_version_cache = json.load(cache)
+                return list_version_cache
+
+        with open('cache_version.json', 'w') as cache:
+
+            cache.write(json.dumps(numeric_versions))
         return numeric_versions
 
     def run(self, path: str):
