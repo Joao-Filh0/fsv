@@ -33,15 +33,22 @@ def main():
 
     manage_path = ManagePath()
     config_path = manage_path.get_flutter_path()
+    if config_path is None:
+        print('Add a path where you would like\n flutter to be installed')
+        print(command_path)
+        return
 
-    if vars(args).get('change'):
+    elif vars(args).get('change'):
         rename_version(arg=args.change, path_flutter=config_path, label=label, version_label=version_label)
+        return
 
     elif vars(args).get('list'):
         list_version(path_flutter=config_path, version_label=version_label, label=label)
+        return
 
     elif vars(args).get('path'):
         manage_path.save(args.path)
+        return
 
     elif vars(args).get('view_path'):
         if config_path:
@@ -50,26 +57,33 @@ def main():
             print(not_found_path)
             print(message)
             print(command_path)
+        return
 
     elif vars(args).get('pub_get'):
         pub_get = PubGet(args.pub_get)
         pub_get.run()
+        return
 
     elif vars(args).get('list_stable'):
         list_flutter_origin_stable = GetFlutterStableVersions()
         list_flutter_origin_stable.run()
+        return
 
     elif vars(args).get('pull'):
         pull = CloneFlutter()
         pull.clone(path_flutter=config_path, version=args.pull, label=label, version_label=version_label)
+        return
 
     elif vars(args).get('memory'):
         memory = GetFolderSize()
         memory.run(path=config_path)
+        return
 
     elif vars(args).get('remove'):
         remove = DeleteFlutterVersion()
         remove.run(path=config_path, version_label=version_label, set_version=args.remove)
+        return
+    return
 
 
 if __name__ == "__main__":
