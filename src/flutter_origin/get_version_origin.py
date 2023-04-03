@@ -30,6 +30,9 @@ class GetFlutterStableVersions:
                     break
 
                 page += 1
+            elif response.status_code == 403:
+                print(f"Error: {response.text}")
+                return None
             else:
                 print(f"Error: {response.status_code}")
                 return None
@@ -38,15 +41,16 @@ class GetFlutterStableVersions:
 
     def run(self, path: str):
         print('Search Flutter Stables Versions ...')
-
         numeric_versions = self.__get_versions()
-        numeric_versions.reverse()
-        list_versions = get_version_helper(path=path)
-
         if numeric_versions:
-            print("Stable versions available")
-            for version in numeric_versions:
-                if version in list_versions:
-                    print(f'{Fore.GREEN} Stable = {version} <------- {Style.RESET_ALL}')
-                else:
-                    print(f'{Fore.YELLOW} Stable = {version} {Style.RESET_ALL}')
+
+            numeric_versions.reverse()
+            list_versions = get_version_helper(path=path)
+
+            if numeric_versions:
+                print("Stable versions available")
+                for version in numeric_versions:
+                    if version in list_versions:
+                        print(f'{Fore.GREEN} Stable = {version} <------- {Style.RESET_ALL}')
+                    else:
+                        print(f'{Fore.YELLOW} Stable = {version} {Style.RESET_ALL}')
