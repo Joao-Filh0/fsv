@@ -56,14 +56,6 @@ Adicione o path nas variavéis de ambiente ex:. `C:\fsv`
 
 ## Comandos :
 
-Se você desejar adicionar o caminho do Flutter manualmente (Opcional):
-
-`fsv -p /Users/your-flutter-path/`  ou `fsv -path /Users/your-flutter-path/`
-
-Ex: Para windowns
-
-`fsv -path C:\src\`
-
 Para listar todas as versões do Flutter
 
 `fsv -l`    ou  `fsv -list`
@@ -75,6 +67,20 @@ Mudar versão
 Para executar o comando `pub get` no app principal e em todos os micro apps.
 
 `fsv -pg`    ou  `fsv --pub-get`
+
+#### "Observação para o Windows: caso valores estranhos sejam exibidos como "←[33mflutter : 3.0.1←[0m", siga os passos abaixo.
+
+1 - Abra o Editor do Registro do Windows pressionando Win + R, digitando regedit e pressionando Enter.
+
+2 - Navegue até a chave HKEY_CURRENT_USER\Console.
+
+3 - Clique com o botão direito do mouse na chave Console e selecione "Novo" > "Valor DWORD (32 bits)".
+
+4 - Nomeie o valor como VirtualTerminalLevel e defina o valor como 1.
+
+5 - Feche o Editor do Registro do Windows e abra o PowerShell novamente.
+
+
 
 Também é possível executar o comando pub get em ordem crescente ou decrescente.
 
@@ -95,6 +101,14 @@ Listar todas as versões stable
 Deletar uma versão
 
 `fsv -rm 3.7.7` ou ` fsv --remove 3.7.7`
+
+Se você desejar adicionar o caminho do Flutter manualmente (Opcional):
+
+`fsv -p /Users/your-flutter-path/`  ou `fsv -path /Users/your-flutter-path/`
+
+Ex: Para windowns
+
+`fsv -path C:\src\`
 
 ## Contribuindo
 

@@ -10,6 +10,7 @@ setup(
     package_dir={"": "."},
     install_requires=[
         "requests",
+        "colorama",
         "argparse>=1.4.0",
 
     ],
