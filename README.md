@@ -68,6 +68,10 @@ Para executar o comando `pub get` no app principal e em todos os micro apps.
 
 `fsv -pg`    ou  `fsv --pub-get`
 
+Também é possível executar o comando pub get em ordem crescente ou decrescente.
+
+`fsv -pg asc`    ou  `fsv --pub-get desc`
+
 #### "Observação para o Windows: caso valores estranhos sejam exibidos como "←[33mflutter : 3.0.1←[0m", siga os passos abaixo.
 
 1 - Abra o Editor do Registro do Windows pressionando Win + R, digitando regedit e pressionando Enter.
@@ -85,12 +89,6 @@ Para executar o comando `pub get` no app principal e em todos os micro apps.
 1 - Clique com o botão direito do mouse no ícone do PowerShell e selecione "Propriedades" no menu de contexto.
 
 2 - Clique na guia "Fonte" e selecione NSimSun.
-
-
-
-Também é possível executar o comando pub get em ordem crescente ou decrescente.
-
-`fsv -pg asc`    ou  `fsv --pub-get desc`
 
 Ver tamanho da pasta que contém os arquivos flutter
 
