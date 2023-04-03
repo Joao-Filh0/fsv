@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import re
 
 
 class GetFolderSize:
@@ -36,5 +37,11 @@ class GetFolderSize:
 
     def run(self, path: str):
         print('Calculating the bytes ...')
+        path = os.path.normpath(path)
+
+        match = re.search(r"[\\/]?([^\\/]+)[\\/]?$", path)
+        folder = None
+        if match:
+            folder = match.group(1)
         folder_size = self._get_folder_size(path)
-        print(folder_size)
+        print(f'{folder}/ is used {folder_size}')
