@@ -6,3 +6,7 @@ def get_slash():
     if platform.system() == 'Windows':
         return '\\'
     return '/'
+
+
+def is_win():
+    return platform.system() == 'Windows'

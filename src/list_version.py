@@ -18,5 +18,5 @@ def list_version(path_flutter: str, version_label: str, label: str, is_print=Tru
             if version_label in flutter:
                 path = os.path.join(path_flutter, v, version_label)
                 open_file(path, message=f'{label} : ', is_print=is_print,
-                          check=' \u2714' if label == v else '')
+                          check=' ✔' if label == v else '')
     return versions
