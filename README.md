@@ -80,6 +80,12 @@ Para executar o comando `pub get` no app principal e em todos os micro apps.
 
 5 - Feche o Editor do Registro do Windows e abra o PowerShell novamente.
 
+#### Para exibir o ícone (se necessário): 
+
+1 - Clique com o botão direito do mouse no ícone do PowerShell e selecione "Propriedades" no menu de contexto.
+
+2 - Clique na guia "Fonte" e selecione NSimSun.
+
 
 
 Também é possível executar o comando pub get em ordem crescente ou decrescente.
