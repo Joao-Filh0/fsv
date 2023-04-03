@@ -22,7 +22,7 @@ class DeleteFlutterVersion:
 
         folder = self.__candidate_version(path, version_label, set_version)
         if folder:
-            remove_folder(folder,required_permission=True)
+            remove_folder(folder, required_permission=True, show_message=True)
             print(f'Version {set_version} removed')
         else:
             print(f'Version {set_version} not found')

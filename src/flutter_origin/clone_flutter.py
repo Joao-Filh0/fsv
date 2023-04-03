@@ -33,9 +33,9 @@ class CloneFlutter:
         subprocess.run("flutter doctor -v", capture_output=True, text=True, shell=True)
 
         if result.returncode == 0:
-            print("Naming version")
+            print("Naming version\n")
             self.__set_file_version(path_flutter=path_flutter, label=label, version=version)
-            print("Freeing up space ...")
+            print("Freeing up space ...\n")
             remove_folder(os.path.join(path_flutter, label, 'examples'))
             print('Completed Successfully!\n')
             print(f'The current version is {version}')

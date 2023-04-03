@@ -4,8 +4,9 @@ import os
 from src.helpers.validate_platform import is_win
 
 
-def remove_folder(dir_path, required_permission=False):
-    print("Deleting ...")
+def remove_folder(dir_path, required_permission=False, show_message=False):
+    if show_message:
+        print("Deleting ...\n")
     for item in os.listdir(dir_path):
         item_path = os.path.join(dir_path, item)
 
