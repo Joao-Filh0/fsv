@@ -2,11 +2,12 @@
 import shutil
 import os
 from src.helpers.validate_platform import is_win
+from  colorama import  Fore
 
 
 def remove_folder(dir_path, required_permission=False, show_message=False):
     if show_message:
-        print("Deleting ...\n")
+        print(f"{Fore.RED}Deleting ...\n")
     for item in os.listdir(dir_path):
         item_path = os.path.join(dir_path, item)
 
