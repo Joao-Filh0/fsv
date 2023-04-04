@@ -25,8 +25,8 @@ def rename_version(arg: str, path_flutter: str, label: str, version_label: str):
                 if read_version == arg:
                     current_folder = folder
                     break
-        except Exception as e:
-            print(e)
+        except:
+            pass
     try:
         os.rename(current_folder, label)
         print(f'The current version is {arg}')
