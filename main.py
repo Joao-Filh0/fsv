@@ -5,7 +5,8 @@ import argparse
 from src.constants import (description, version_label,
                            label, not_found_path,
                            message_current_path,
-                           message, command_path)
+                           message, command_path, change_message, list_message, path_message, pull_message,
+                           remove_message, pub_get_message, list_stable_message, memory_message)
 from src.delete_flutter_version.delete_flutter_version import DeleteFlutterVersion
 from src.flutter_origin.clone_flutter import CloneFlutter
 from src.flutter_origin.get_version_origin import GetFlutterStableVersions
@@ -19,15 +20,15 @@ from src.rename_version import rename_version
 def main():
     parser = argparse.ArgumentParser(description=description)
 
-    parser.add_argument('--change', '-c', required=False)
-    parser.add_argument('--list', '-l', required=False, const='l', nargs='?')
-    parser.add_argument('--path', '-p', required=False)
-    parser.add_argument('--pull', '-pl', required=False)
-    parser.add_argument('--remove', '-rm', required=False)
-    parser.add_argument('--pub-get', '-pg', required=False, const='desc', nargs='?')
+    parser.add_argument('--change', '-c', required=False, help=change_message)
+    parser.add_argument('--list', '-l', required=False, const='l', nargs='?', help=list_message)
+    parser.add_argument('--path', '-p', required=False, help=path_message)
+    parser.add_argument('--pull', '-pl', required=False, help=pull_message)
+    parser.add_argument('--remove', '-rm', required=False, help=remove_message)
+    parser.add_argument('--pub-get', '-pg', required=False, const='desc', nargs='?', help=pub_get_message)
     parser.add_argument('--view-path', '-vp', required=False, const='vp', nargs='?')
-    parser.add_argument('--list-stable', '-ls', required=False, const='ls', nargs='?')
-    parser.add_argument('--memory', '-m', required=False, const='m', nargs='?')
+    parser.add_argument('--list-stable', '-ls', required=False, const='ls', nargs='?', help=list_stable_message)
+    parser.add_argument('--memory', '-m', required=False, const='m', nargs='?', help=memory_message)
 
     args = parser.parse_args()
 
