@@ -16,8 +16,19 @@ def rename_version(arg: str, path_flutter: str, label: str, version_label: str):
         print('Flutter version not found')
         return
 
+    folders = os.listdir(path_flutter)
+    current_folder = ''
+    for folder in folders:
+        try:
+            with open(os.path.join(path_flutter, folder, version_label), "r") as version:
+                read_version = version.read()
+                if read_version == arg:
+                    current_folder = folder
+                    break
+        except Exception as e:
+            print(e)
     try:
-        os.rename(arg, label)
+        os.rename(current_folder, label)
         print(f'The current version is {arg}')
     except:
         print('Error not renamed')

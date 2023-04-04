@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os
 import re
 
+from colorama import Fore, Style
+
 
 class GetFolderSize:
-    import os
-
     def _convert_size(self, size_bytes: int) -> str:
         try:
             if size_bytes < 0:
@@ -36,12 +37,20 @@ class GetFolderSize:
             print(e)
 
     def run(self, path: str):
-        print('Calculating the bytes ...')
+        print(f'{Fore.LIGHTGREEN_EX}Calculating the bytes ...')
         path = os.path.normpath(path)
+        total_size_bytes = 0
 
-        match = re.search(r"[\\/]?([^\\/]+)[\\/]?$", path)
-        folder = None
-        if match:
-            folder = match.group(1)
-        folder_size = self._get_folder_size(path)
-        print(f'{folder}/ is used {folder_size}')
+        for subdir in os.listdir(path):
+            subdir_path = os.path.join(path, subdir)
+            if os.path.isdir(subdir_path):
+                if re.match(r"^\d+(\.\d+)*$", subdir) or "flutter" in subdir.lower():
+                    total_size_bytes += sum(
+                        os.path.getsize(os.path.join(dirpath, filename)) for dirpath, _, filenames in os.walk(subdir_path) for filename
+                        in filenames)
+
+        total_size = self._convert_size(total_size_bytes)
+        print(f'{Fore.LIGHTBLUE_EX}Used --> {total_size}{Style.RESET_ALL}')
+
+
+
