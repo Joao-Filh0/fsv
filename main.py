@@ -14,7 +14,7 @@ from src.get_folder_sizes.get_folder_size import GetFolderSize
 from src.list_version import list_version
 from src.manage_path.manager_path import ManagePath
 from src.new_feature.new_feature import create_new_feature
-from src.pub_get.pub_get import PubGet
+from src.flutter_launcher.flutter_launcher import FlutterLauncher
 from src.rename_version import rename_version
 
 
@@ -27,6 +27,8 @@ def main():
     parser.add_argument('--pull', '-pl', required=False, help=pull_message)
     parser.add_argument('--remove', '-rm', required=False, help=remove_message)
     parser.add_argument('--pub-get', '-pg', required=False, const='desc', nargs='?', help=pub_get_message)
+    parser.add_argument('--pub-upgrade', '-pu', required=False, const='desc', nargs='?', help="flutter pub upgrade")
+    parser.add_argument('--clean', '-cls', required=False, const='desc', nargs='?', help="flutter clean")
     parser.add_argument('--view-path', '-vp', required=False, const='vp', nargs='?')
     parser.add_argument('--list-stable', '-ls', required=False, const='ls', nargs='?', help=list_stable_message)
     parser.add_argument('--memory', '-m', required=False, const='m', nargs='?', help=memory_message)
@@ -63,8 +65,18 @@ def main():
         return
 
     elif vars(args).get('pub_get'):
-        pub_get = PubGet(args.pub_get)
-        pub_get.run()
+        pub_get = FlutterLauncher(args.pub_get)
+        pub_get.run('pub get')
+        return
+
+    elif vars(args).get('clean'):
+        pub_get = FlutterLauncher(args.pub_get)
+        pub_get.run('clean')
+        return
+
+    elif vars(args).get('pub_upgrade'):
+        pub_get = FlutterLauncher(args.pub_get)
+        pub_get.run('pub upgrade')
         return
 
     elif vars(args).get('list_stable'):

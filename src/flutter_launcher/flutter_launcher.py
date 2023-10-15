@@ -3,15 +3,15 @@ import subprocess
 import os
 
 
-class PubGet:
+class FlutterLauncher:
     def __init__(self, args):
         self.file = "pubspec.yaml"
         self.reverse = args
 
-    def __run_pub_get(self, project_path):
+    def __launcher(self, project_path, command):
         subprocess.run(["cd", project_path], shell=True)
 
-        result = subprocess.run(f"flutter pub get {project_path}", capture_output=True, text=True, shell=True)
+        result = subprocess.run(f"flutter  {command} {project_path}", capture_output=True, text=True, shell=True)
 
         if result.returncode == 0:
             print(result.stdout)
@@ -29,7 +29,7 @@ class PubGet:
 
         return pubspec_files
 
-    def run(self):
+    def run(self, command):
 
         if self.reverse != 'desc' and self.reverse != 'asc':
             print(f'Command ({self.reverse}) not found !')
@@ -47,6 +47,6 @@ class PubGet:
                 dir_name = start_directory.split('/')[-1]
                 pubspec_path = filepath.split(dir_name)[-1]
                 path = pubspec_path[1:].replace(self.file, '')
-                self.__run_pub_get(path)
+                self.__launcher(path, command)
         else:
             print("Project FLUTTER not found.")
