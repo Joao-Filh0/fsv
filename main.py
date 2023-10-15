@@ -13,6 +13,7 @@ from src.flutter_origin.get_version_origin import GetFlutterStableVersions
 from src.get_folder_sizes.get_folder_size import GetFolderSize
 from src.list_version import list_version
 from src.manage_path.manager_path import ManagePath
+from src.new_feature.new_feature import create_new_feature
 from src.pub_get.pub_get import PubGet
 from src.rename_version import rename_version
 
@@ -29,6 +30,7 @@ def main():
     parser.add_argument('--view-path', '-vp', required=False, const='vp', nargs='?')
     parser.add_argument('--list-stable', '-ls', required=False, const='ls', nargs='?', help=list_stable_message)
     parser.add_argument('--memory', '-m', required=False, const='m', nargs='?', help=memory_message)
+    parser.add_argument('--new-feature', '-nf', required=True)
 
     args = parser.parse_args()
 
@@ -83,6 +85,9 @@ def main():
     elif vars(args).get('remove'):
         remove = DeleteFlutterVersion()
         remove.run(path=config_path, version_label=version_label, set_version=args.remove)
+        return
+    elif vars(args).get('new_feature'):
+        create_new_feature(args.new_feature)
         return
     return
 
