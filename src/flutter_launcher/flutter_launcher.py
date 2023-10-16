@@ -16,7 +16,7 @@ class FlutterLauncher:
         if result.returncode == 0:
             print(result.stdout)
         else:
-            print(f"Error running 'flutter pub get' on {project_path}:")
+            print(f"Error running Flutter {command} on {project_path}:")
             print(result.stderr)
 
     def __find_pubspec_files(self, start_directory):
